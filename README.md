@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# GearPilot
 
-# Run and deploy your AI Studio app
+GearPilot is a laptop recommendation platform designed for Indian students and professionals.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/2506d895-88d4-4a4c-8ef2-d4d562773c55
+- Laptop discovery
+- Budget-based filtering
+- Use-case recommendations
+- Laptop comparison
+- Detailed specifications
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- React
+- TypeScript
+- Vite
+- Node.js 
+- Express
+- MongoDB 
 
+## Status
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+🚧 Currently under development.
