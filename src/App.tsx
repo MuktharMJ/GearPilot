@@ -25,7 +25,7 @@ import { Laptop, UseCaseType, PortabilityPreference, BatteryPreference } from '.
 export default function App() {
   // State elements
   const [selectedUseCase, setSelectedUseCase] = useState<UseCaseType | 'all'>('all');
-  const [maxPrice, setMaxPrice] = useState<number>(2000);
+  const [maxPrice, setMaxPrice] = useState<number>(250000);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedLaptop, setSelectedLaptop] = useState<Laptop | null>(null);
   
@@ -271,21 +271,21 @@ export default function App() {
             <div className="space-y-2 pt-4 border-t border-white/10 font-mono">
               <div className="flex justify-between items-center text-xs">
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-wider block">PRICE THRESHOLD</span>
-                <span className="text-[#33FF00] font-black">${maxPrice}</span>
+                <span className="text-[#33FF00] font-black">₹{maxPrice.toLocaleString('en-IN')}</span>
               </div>
               <input
                 type="range"
-                min="400"
-                max="2000"
-                step="50"
+                min="25000"
+                max="250000"
+                step="5000"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="w-full tracking-wide accent-[#33FF00] cursor-pointer"
               />
               <div className="flex justify-between text-[9px] text-white/30 font-bold">
-                <span>$400</span>
-                <span>$1200</span>
-                <span>$2000+</span>
+                <span>₹25,000</span>
+                <span>₹1,30,000</span>
+                <span>₹2,50,000+</span>
               </div>
             </div>
 
@@ -317,7 +317,7 @@ export default function App() {
                 <button
                   onClick={() => {
                     setSelectedUseCase('all');
-                    setMaxPrice(2000);
+                    setMaxPrice(250000);
                     setSearchQuery('');
                   }}
                   className="cursor-pointer inline-flex items-center gap-2 bg-[#33FF00] hover:bg-white text-black text-xs font-black tracking-wider py-3 px-6 mt-2 uppercase transition-all"
@@ -347,7 +347,7 @@ export default function App() {
                             className="w-full h-full object-cover opacity-70 group-hover:scale-103 group-hover:opacity-90 transition-all duration-300 pointer-events-none"
                           />
                           <div className="absolute top-4 right-4 bg-black border border-white/25 px-3 py-1 text-[#33FF00] font-mono font-black text-base">
-                            ${laptop.price}
+                            ₹{laptop.price.toLocaleString('en-IN')}
                           </div>
                           
                           {/* Use Case Tags on Image */}
@@ -472,7 +472,7 @@ export default function App() {
                     className="w-full h-full object-cover opacity-80"
                   />
                   <div className="absolute bottom-4 left-4 bg-black border border-[#33FF00] px-4 py-2 text-[#33FF00] font-mono text-base font-black">
-                    ${selectedLaptop.price}
+                    ₹{selectedLaptop.price.toLocaleString('en-IN')}
                   </div>
                 </div>
 
