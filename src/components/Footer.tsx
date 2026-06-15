@@ -1,20 +1,14 @@
-import { Laptop as LaptopIcon } from 'lucide-react';
-
 export default function Footer() {
   return (
-    <footer className="bg-zinc-950 text-zinc-550 py-12 border-t border-zinc-900 text-center text-xs space-y-4 font-sans">
-      <div className="flex justify-center items-center gap-3">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center">
-          <LaptopIcon className="w-4 h-4 text-white" />
-        </div>
-        <span className="font-bold text-white tracking-widest text-sm uppercase">GearPilot India</span>
+    <footer className="border-t border-white/[0.06] py-8 text-center">
+      <div className="max-w-[980px] mx-auto px-6 space-y-3">
+        <p className="text-[12px] text-[#86868b] leading-relaxed max-w-lg mx-auto">
+          GearPilot helps Indian college students, developers, and first-time buyers find the right laptop with curated recommendations and honest specs.
+        </p>
+        <p className="text-[11px] text-[#6e6e73]">
+          &copy; 2026 GearPilot
+        </p>
       </div>
-      <p className="max-w-md mx-auto text-zinc-500 text-xs leading-relaxed px-4">
-        Empowering college students, programmers, and first-time laptop buyers with curated, real retail recommendations and easy-to-understand specifications.
-      </p>
-      <p className="text-[10px] text-zinc-600 uppercase tracking-widest">
-        &copy; 2026 GearPilot &bull; Handcrafted Spec Matching Suite
-      </p>
     </footer>
   );
 }

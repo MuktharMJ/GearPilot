@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
-import { ShieldAlert } from 'lucide-react';
 import { laptops } from '../data/laptops';
 import { Laptop } from '../types';
 import { useFilters } from '../hooks/useFilters';
@@ -73,24 +72,22 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080d] text-[#e3e5eb] font-sans selection:bg-[#38bdf8] selection:text-black grid-pattern flex flex-col justify-between">
+    <div className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between">
       <Header onOpenQuiz={() => setIsQuizOpen(true)} />
 
-      <main className="max-w-7xl w-full mx-auto px-6 sm:px-8 py-10 flex-1">
+      <main className="max-w-[1200px] w-full mx-auto px-6 py-8 flex-1">
         <HeroSection />
 
-        <div className="mb-8" id="scrolling-target">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-zinc-800/80">
+        {/* Section header */}
+        <div className="mb-10 pt-6 border-t border-white/[0.06]" id="scrolling-target">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">Explore Current Laptop Matches</h2>
-              <p className="text-xs text-zinc-400 tracking-wide mt-1">Real-time specifications, Indian pricing structures, and honest hardware breakdowns.</p>
-            </div>
-            <div className="flex items-center gap-3 bg-zinc-900/80 border border-zinc-800 px-4 py-2 rounded-xl text-xs font-medium shrink-0">
-              <span className="text-zinc-500">Matched Laptops:</span>
-              <span className="text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-md border border-sky-400/20 font-bold">{filteredLaptops.length} available</span>
-              <span className="text-zinc-700">|</span>
-              <span className="text-zinc-500">Catalog Size:</span>
-              <span className="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-md font-bold">{laptops.length} models</span>
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[#f5f5f7]">
+                Explore laptops.
+              </h2>
+              <p className="text-[14px] text-[#86868b] mt-1">
+                {filteredLaptops.length} models match your criteria.
+              </p>
             </div>
           </div>
         </div>
@@ -109,26 +106,23 @@ export default function Home() {
 
           <div className="lg:col-span-3">
             {filteredLaptops.length === 0 ? (
-              <div className="bg-zinc-900/30 rounded-2xl border border-zinc-800/80 p-16 text-center space-y-6">
-                <div className="inline-flex p-4 bg-zinc-800 text-zinc-500 rounded-full">
-                  <ShieldAlert className="w-8 h-8" />
-                </div>
+              <div className="bg-white/[0.03] rounded-3xl border border-white/[0.06] p-16 text-center space-y-5">
                 <div>
-                  <h3 className="font-bold text-lg text-white">No laptops found</h3>
-                  <p className="text-sm text-zinc-500 mt-2 max-w-md mx-auto">
-                    Try adjusting your budget slider, choosing different major streams, or simplifying search queries to find suitable student recommendations.
+                  <h3 className="font-semibold text-lg text-[#f5f5f7]">No laptops found.</h3>
+                  <p className="text-[14px] text-[#86868b] mt-2 max-w-md mx-auto">
+                    Try adjusting your budget, choosing a different category, or simplifying your search.
                   </p>
                 </div>
                 <button
                   onClick={resetFilters}
-                  className="cursor-pointer inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white text-xs font-semibold px-6 py-3 rounded-xl transition-all shadow-md shadow-sky-500/10"
+                  className="cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-colors"
                 >
-                  Reset Selection Filters
+                  Reset Filters
                 </button>
               </div>
             ) : (
               <div className="flex flex-col gap-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <AnimatePresence mode="popLayout">
                     {filteredLaptops.slice(0, visibleCount).map((laptop) => (
                       <LaptopCard
@@ -142,16 +136,16 @@ export default function Home() {
                   </AnimatePresence>
                 </div>
                 
-                <div className="flex flex-col items-center justify-center gap-4 pt-4 pb-8 border-t border-zinc-800/50">
-                  <p className="text-xs font-semibold text-zinc-500 tracking-wide">
-                    Showing {Math.min(visibleCount, filteredLaptops.length)} of {filteredLaptops.length} laptops
+                <div className="flex flex-col items-center justify-center gap-3 py-8">
+                  <p className="text-[12px] text-[#6e6e73]">
+                    Showing {Math.min(visibleCount, filteredLaptops.length)} of {filteredLaptops.length}
                   </p>
                   {visibleCount < filteredLaptops.length && (
                     <button
                       onClick={() => setVisibleCount(v => v + 8)}
-                      className="cursor-pointer bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white px-8 py-3 rounded-xl text-sm font-semibold transition-all shadow-md"
+                      className="cursor-pointer text-[#0071e3] hover:text-[#0077ed] text-[13px] font-medium px-6 py-2.5 rounded-full border border-[#0071e3]/30 hover:border-[#0071e3]/60 transition-all"
                     >
-                      Load More
+                      Show More
                     </button>
                   )}
                 </div>

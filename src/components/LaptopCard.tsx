@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Battery, Check, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Laptop } from '../types';
 
 interface LaptopCardProps {
@@ -14,28 +14,29 @@ export default function LaptopCard({ laptop, onSelect, isCompared, onCompare }: 
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      className="bg-zinc-900/20 hover:bg-zinc-900/40 rounded-2xl border border-zinc-800/80 hover:border-zinc-700/80 overflow-hidden transition-all duration-300 flex flex-col justify-between group shadow-xl hover:shadow-2xl hover:shadow-sky-500/5"
+      exit={{ opacity: 0, scale: 0.97 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+      className="bg-white/[0.03] hover:bg-white/[0.06] rounded-3xl border border-white/[0.06] hover:border-white/[0.12] overflow-hidden transition-all duration-500 flex flex-col justify-between group"
     >
       <div>
-        {/* Laptop Card Image with clean currency banner */}
-        <div className="relative h-48 bg-zinc-950 overflow-hidden border-b border-zinc-800/80">
+        {/* Image */}
+        <div className="relative h-52 bg-[#0a0a0a] overflow-hidden">
           <img
             src={laptop.imageUrl}
             alt={laptop.name}
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover opacity-75 group-hover:scale-102 group-hover:opacity-90 transition-all duration-500 pointer-events-none"
+            className="w-full h-full object-cover opacity-70 group-hover:opacity-85 group-hover:scale-[1.03] transition-all duration-700 ease-out pointer-events-none"
           />
-          <div className="absolute top-4 right-4 bg-zinc-950/90 text-white font-bold text-xs px-3.5 py-1.5 rounded-full border border-zinc-800 backdrop-blur-md">
+          <div className="absolute top-3 right-3 bg-black/70 text-[#f5f5f7] font-semibold text-[12px] px-3 py-1 rounded-full backdrop-blur-md">
             ₹{laptop.price.toLocaleString('en-IN')}
           </div>
 
-          {/* Compare Checkbox */}
+          {/* Compare */}
           {onCompare && (
-            <div className="absolute top-4 left-4 z-10">
-              <label className="flex items-center gap-2 cursor-pointer group/compare bg-zinc-950/80 backdrop-blur-md border border-zinc-800 px-2 py-1.5 rounded-lg hover:border-sky-500/50 transition-colors">
+            <div className="absolute top-3 left-3 z-10">
+              <label className="flex items-center gap-1.5 cursor-pointer bg-black/60 backdrop-blur-md px-2.5 py-1.5 rounded-full hover:bg-black/80 transition-colors">
                 <input
                   type="checkbox"
                   checked={isCompared}
@@ -43,90 +44,68 @@ export default function LaptopCard({ laptop, onSelect, isCompared, onCompare }: 
                     e.stopPropagation();
                     onCompare(laptop);
                   }}
-                  className="w-3.5 h-3.5 rounded bg-zinc-900 border-zinc-700 text-sky-500 focus:ring-sky-500 focus:ring-offset-zinc-950 cursor-pointer"
+                  className="w-3 h-3 rounded bg-transparent border-white/30 text-[#0071e3] focus:ring-[#0071e3] cursor-pointer"
                 />
-                <span className="text-[10px] font-semibold text-zinc-300 uppercase tracking-wider group-hover/compare:text-white transition-colors">
+                <span className="text-[10px] font-medium text-white/80">
                   {isCompared ? 'Added' : 'Compare'}
                 </span>
               </label>
             </div>
           )}
-          
-          
-          {/* Use Case Tags on Image */}
-          <div className="absolute bottom-4 left-4 flex flex-wrap gap-1.5 max-w-[85%]">
+
+          {/* Use case tags */}
+          <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
             {laptop.useCases.map((uc) => (
-              <span 
-                key={uc} 
-                className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md backdrop-blur-md border ${
-                  uc === 'coding' ? 'bg-sky-500/20 text-sky-300 border-sky-400/20' :
-                  uc === 'gaming' ? 'bg-indigo-500/20 text-indigo-300 border-indigo-400/20' :
-                  uc === 'editing' ? 'bg-purple-500/20 text-purple-300 border-purple-400/20' :
-                  'bg-emerald-500/20 text-emerald-300 border-emerald-400/20'
-                }`}
+              <span
+                key={uc}
+                className="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-black/50 text-white/70 backdrop-blur-md"
               >
-                {uc === 'coding' ? 'Coding' : uc === 'gaming' ? 'Gaming' : uc === 'editing' ? 'Editing & CAD' : 'College Study'}
+                {uc === 'coding' ? 'Coding' : uc === 'gaming' ? 'Gaming' : uc === 'editing' ? 'Creative' : 'Study'}
               </span>
             ))}
           </div>
         </div>
 
-        {/* Text details */}
-        <div className="p-6 space-y-4">
+        {/* Content */}
+        <div className="p-5 space-y-3">
           <div>
-            <span className="text-[10px] font-semibold tracking-wider text-sky-400 uppercase">{laptop.brand}</span>
-            <h4 className="font-bold text-white text-base mt-0.5 leading-tight group-hover:text-sky-400 transition-colors line-clamp-1">{laptop.name}</h4>
+            <span className="text-[10px] font-medium tracking-wider text-[#86868b] uppercase">{laptop.brand}</span>
+            <h4 className="font-semibold text-[#f5f5f7] text-[15px] mt-0.5 leading-snug line-clamp-1">{laptop.name}</h4>
           </div>
 
-          <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+          <p className="text-[12px] text-[#86868b] line-clamp-2 leading-relaxed">
             {laptop.description}
           </p>
 
-          {/* Beautifully Structured Spec Grid */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2 bg-zinc-950/50 p-4 rounded-xl border border-zinc-800/85 text-xs text-zinc-300">
-            <div className="flex flex-col min-w-0">
-              <span className="text-zinc-500 text-[9px] uppercase font-bold tracking-wider mb-0.5">Processor</span>
-              <span className="font-semibold text-zinc-200 truncate">{laptop.specs.cpu.split('(')[0].trim()}</span>
+          {/* Specs */}
+          <div className="grid grid-cols-2 gap-3 text-[12px]">
+            <div>
+              <span className="text-[#6e6e73] text-[10px] block mb-0.5">Processor</span>
+              <span className="text-[#f5f5f7] font-medium truncate block">{laptop.specs.cpu.split('(')[0].trim()}</span>
             </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-zinc-500 text-[9px] uppercase font-bold tracking-wider mb-0.5">Graphics</span>
-              <span className="font-semibold text-zinc-200 truncate">{laptop.specs.gpu}</span>
+            <div>
+              <span className="text-[#6e6e73] text-[10px] block mb-0.5">Graphics</span>
+              <span className="text-[#f5f5f7] font-medium truncate block">{laptop.specs.gpu}</span>
             </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-zinc-500 text-[9px] uppercase font-bold tracking-wider mb-0.5">RAM / Memory</span>
-              <span className="font-semibold text-zinc-200 truncate">{laptop.specs.ram}</span>
+            <div>
+              <span className="text-[#6e6e73] text-[10px] block mb-0.5">Memory</span>
+              <span className="text-[#f5f5f7] font-medium truncate block">{laptop.specs.ram}</span>
             </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-zinc-500 text-[9px] uppercase font-bold tracking-wider mb-0.5">Battery & Weight</span>
-              <span className="font-semibold text-zinc-200 truncate flex items-center gap-1">
-                <Battery className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>{laptop.batteryLife} hr • {(laptop.weight / 2.2).toFixed(2)} kg</span>
-              </span>
+            <div>
+              <span className="text-[#6e6e73] text-[10px] block mb-0.5">Battery</span>
+              <span className="text-[#f5f5f7] font-medium truncate block">{laptop.batteryLife} hr · {(laptop.weight / 2.2).toFixed(1)} kg</span>
             </div>
-          </div>
-
-          {/* Dynamic benefits check */}
-          <div className="space-y-1.5 pt-1">
-            <h5 className="text-[9px] uppercase font-bold text-zinc-500 tracking-wider">Quick Highlights</h5>
-            <ul className="space-y-1">
-              {laptop.pros.slice(0, 2).map((pro, index) => (
-                <li key={index} className="text-xs flex items-center gap-2 text-zinc-400">
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">{pro}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
 
-      {/* Explore Button */}
-      <div className="px-6 pb-6">
+      {/* CTA */}
+      <div className="px-5 pb-5">
         <button
           onClick={() => onSelect(laptop)}
-          className="cursor-pointer w-full text-center bg-zinc-950 border border-zinc-800/80 hover:border-sky-500/50 hover:bg-zinc-900 text-zinc-300 hover:text-white py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
+          className="cursor-pointer w-full flex items-center justify-center gap-1.5 text-[#0071e3] hover:text-[#0077ed] text-[13px] font-medium py-2.5 rounded-xl hover:bg-white/[0.04] transition-all"
         >
-          <span>Explore Specs & Pros</span>
+          <span>Learn more</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
