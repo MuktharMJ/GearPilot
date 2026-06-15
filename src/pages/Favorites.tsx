@@ -112,6 +112,7 @@ export default function Favorites() {
       <LaptopDetailModal
         laptop={selectedLaptop}
         onClose={() => handleSelectLaptop(null)}
+        onSelectAlternative={handleSelectLaptop}
       />
 
       <QuizModal

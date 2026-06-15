@@ -162,6 +162,7 @@ export default function Home() {
       <LaptopDetailModal
         laptop={selectedLaptop}
         onClose={() => handleSelectLaptop(null)}
+        onSelectAlternative={handleSelectLaptop}
       />
 
       <QuizModal
