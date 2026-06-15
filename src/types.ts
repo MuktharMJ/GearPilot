@@ -23,6 +23,7 @@ export interface Laptop {
   imageUrl: string;
   description: string;
   buyUrl: string;
+  hasVerifiedBuyLink: boolean;
   pros: string[];
   cons: string[];
 }

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Check, ExternalLink } from 'lucide-react';
+import { X, Check, ExternalLink, Search } from 'lucide-react';
 import { Laptop } from '../types';
+import { getBuyLinkInfo, getSearchLinks } from '../utils/buyLinks';
 
 interface LaptopDetailModalProps {
   laptop: Laptop | null;
@@ -110,19 +111,47 @@ export default function LaptopDetailModal({ laptop, onClose }: LaptopDetailModal
                 </div>
 
                 {/* Actions */}
-                <div className="pt-4 border-t border-white/[0.06] flex gap-3">
-                  <a
-                    href={laptop.buyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cursor-pointer flex-1 text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-3 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-2"
-                  >
-                    <span>Buy Now</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                <div className="pt-4 border-t border-white/[0.06] space-y-3">
+                  {laptop.hasVerifiedBuyLink ? (
+                    <a
+                      href={getBuyLinkInfo(laptop).url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer w-full text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-3 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-2"
+                    >
+                      <span>Buy Now</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <div className="space-y-2">
+                      <p className="text-[11px] text-[#6e6e73] text-center">No direct link available — search marketplaces:</p>
+                      <div className="flex gap-2">
+                        <a
+                          href={getSearchLinks(laptop).amazon}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer flex-1 text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <Search className="w-3.5 h-3.5" />
+                          <span>Amazon</span>
+                          <ExternalLink className="w-3 h-3 opacity-60" />
+                        </a>
+                        <a
+                          href={getSearchLinks(laptop).flipkart}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer flex-1 text-center bg-white/[0.08] hover:bg-white/[0.14] text-[#f5f5f7] py-2.5 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <Search className="w-3.5 h-3.5" />
+                          <span>Flipkart</span>
+                          <ExternalLink className="w-3 h-3 opacity-60" />
+                        </a>
+                      </div>
+                    </div>
+                  )}
                   <button
                     onClick={onClose}
-                    className="cursor-pointer px-5 bg-white/[0.06] hover:bg-white/[0.1] text-[#f5f5f7] rounded-full text-[13px] font-medium transition-all"
+                    className="cursor-pointer w-full px-5 py-2.5 bg-white/[0.06] hover:bg-white/[0.1] text-[#f5f5f7] rounded-full text-[13px] font-medium transition-all"
                   >
                     Close
                   </button>
