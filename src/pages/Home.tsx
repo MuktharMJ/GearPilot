@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import { ShieldAlert } from 'lucide-react';
@@ -21,6 +21,7 @@ export default function Home() {
   const selectedLaptopId = searchParams.get('laptop');
   const selectedLaptop = selectedLaptopId ? laptops.find(l => l.id === selectedLaptopId) || null : null;
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const {
     selectedUseCase,
@@ -34,6 +35,11 @@ export default function Home() {
     filteredLaptops,
     resetFilters,
   } = useFilters();
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    setVisibleCount(8);
+  }, [filteredLaptops]);
 
   const { compareList, toggleCompare, clearCompare, removeFromCompare } = useCompare();
 
@@ -121,18 +127,34 @@ export default function Home() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <AnimatePresence mode="popLayout">
-                  {filteredLaptops.map((laptop) => (
-                    <LaptopCard
-                      key={laptop.id}
-                      laptop={laptop}
-                      onSelect={handleSelectLaptop}
-                      isCompared={compareList.some(l => l.id === laptop.id)}
-                      onCompare={toggleCompare}
-                    />
-                  ))}
-                </AnimatePresence>
+              <div className="flex flex-col gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <AnimatePresence mode="popLayout">
+                    {filteredLaptops.slice(0, visibleCount).map((laptop) => (
+                      <LaptopCard
+                        key={laptop.id}
+                        laptop={laptop}
+                        onSelect={handleSelectLaptop}
+                        isCompared={compareList.some(l => l.id === laptop.id)}
+                        onCompare={toggleCompare}
+                      />
+                    ))}
+                  </AnimatePresence>
+                </div>
+                
+                <div className="flex flex-col items-center justify-center gap-4 pt-4 pb-8 border-t border-zinc-800/50">
+                  <p className="text-xs font-semibold text-zinc-500 tracking-wide">
+                    Showing {Math.min(visibleCount, filteredLaptops.length)} of {filteredLaptops.length} laptops
+                  </p>
+                  {visibleCount < filteredLaptops.length && (
+                    <button
+                      onClick={() => setVisibleCount(v => v + 8)}
+                      className="cursor-pointer bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white px-8 py-3 rounded-xl text-sm font-semibold transition-all shadow-md"
+                    >
+                      Load More
+                    </button>
+                  )}
+                </div>
               </div>
             )}
           </div>
