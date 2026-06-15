@@ -122,7 +122,7 @@ export default function App() {
               id="btn-quiz-trigger"
             >
               <Sparkles className="w-4 h-4 text-white" />
-              <span>AI Laptop Advisor Quiz</span>
+              <span>Find Your Match</span>
             </button>
           </div>
         </div>
@@ -687,7 +687,7 @@ export default function App() {
               <h3 className="text-xl font-bold text-white mb-6">Find Your Perfect Specs in 30 Seconds</h3>
 
               {/* Quiz steps */}
-              <form onSubmit={handleQuizSubmit} className="space-y-6">
+              <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
                 
                 {quizStep === 1 && (
                   <div className="space-y-4">
