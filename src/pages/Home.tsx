@@ -5,6 +5,7 @@ import { laptops } from '../data/laptops';
 import { Laptop } from '../types';
 import { useFilters } from '../hooks/useFilters';
 import { useCompare } from '../hooks/useCompare';
+import { useFavorites } from '../hooks/useFavorites';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import FilterSidebar from '../components/FilterSidebar';
@@ -41,6 +42,7 @@ export default function Home() {
   }, [filteredLaptops]);
 
   const { compareList, toggleCompare, clearCompare, removeFromCompare } = useCompare();
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   const handleSelectLaptop = (laptop: Laptop | null) => {
     if (laptop) {
@@ -131,6 +133,8 @@ export default function Home() {
                         onSelect={handleSelectLaptop}
                         isCompared={compareList.some(l => l.id === laptop.id)}
                         onCompare={toggleCompare}
+                        isFavorite={isFavorite(laptop.id)}
+                        onToggleFavorite={toggleFavorite}
                       />
                     ))}
                   </AnimatePresence>

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { Laptop } from '../types';
 
 interface LaptopCardProps {
@@ -8,9 +8,11 @@ interface LaptopCardProps {
   onSelect: (laptop: Laptop) => void;
   isCompared?: boolean;
   onCompare?: (laptop: Laptop) => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
-export default function LaptopCard({ laptop, onSelect, isCompared, onCompare }: LaptopCardProps) {
+export default function LaptopCard({ laptop, onSelect, isCompared, onCompare, isFavorite, onToggleFavorite }: LaptopCardProps) {
   return (
     <motion.div
       layout
@@ -29,8 +31,26 @@ export default function LaptopCard({ laptop, onSelect, isCompared, onCompare }: 
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover opacity-70 group-hover:opacity-85 group-hover:scale-[1.03] transition-all duration-700 ease-out pointer-events-none"
           />
-          <div className="absolute top-3 right-3 bg-black/70 text-[#f5f5f7] font-semibold text-[12px] px-3 py-1 rounded-full backdrop-blur-md">
-            ₹{laptop.price.toLocaleString('en-IN')}
+          <div className="absolute top-3 right-3 flex items-center gap-2">
+            {onToggleFavorite && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onToggleFavorite(laptop.id);
+                }}
+                className="cursor-pointer p-1.5 rounded-full bg-black/60 backdrop-blur-md hover:bg-black/80 transition-colors"
+                aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+              >
+                <Heart
+                  className={`w-4 h-4 transition-colors ${
+                    isFavorite ? 'fill-[#ff3b30] text-[#ff3b30]' : 'text-white/80'
+                  }`}
+                />
+              </button>
+            )}
+            <div className="bg-black/70 text-[#f5f5f7] font-semibold text-[12px] px-3 py-1 rounded-full backdrop-blur-md">
+              ₹{laptop.price.toLocaleString('en-IN')}
+            </div>
           </div>
 
           {/* Compare */}
