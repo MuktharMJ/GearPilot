@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Heart, ArrowLeft } from 'lucide-react';
 import { laptops } from '../data/laptops';
 import { Laptop } from '../types';
@@ -52,7 +52,13 @@ export default function Favorites() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between">
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between"
+    >
       <Header onOpenQuiz={() => setIsQuizOpen(true)} />
 
       <main className="max-w-[1200px] w-full mx-auto px-6 py-12 flex-1">
@@ -85,7 +91,7 @@ export default function Favorites() {
             </div>
             <Link
               to="/"
-              className="inline-block cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-colors"
+              className="active:scale-95 inline-block cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-all"
             >
               Explore Laptops
             </Link>
@@ -129,6 +135,6 @@ export default function Favorites() {
       />
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }

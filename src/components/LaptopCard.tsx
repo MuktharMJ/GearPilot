@@ -20,7 +20,7 @@ export default function LaptopCard({ laptop, onSelect, isCompared, onCompare, is
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-      className="bg-white/[0.03] hover:bg-white/[0.06] rounded-3xl border border-white/[0.06] hover:border-white/[0.12] overflow-hidden transition-all duration-500 flex flex-col justify-between group"
+      className="bg-white/[0.03] hover:bg-white/[0.06] rounded-3xl border border-white/[0.06] hover:border-white/[0.12] overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-white/[0.04] flex flex-col justify-between group"
     >
       <div>
         {/* Image */}
@@ -29,7 +29,7 @@ export default function LaptopCard({ laptop, onSelect, isCompared, onCompare, is
             src={laptop.imageUrl}
             alt={laptop.name}
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover opacity-70 group-hover:opacity-85 group-hover:scale-[1.03] transition-all duration-700 ease-out pointer-events-none"
+            className="w-full h-full object-cover opacity-70 group-hover:opacity-85 group-hover:scale-[1.03] transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] pointer-events-none"
           />
           <div className="absolute top-3 right-3 flex items-center gap-2">
             {onToggleFavorite && (
@@ -123,7 +123,7 @@ export default function LaptopCard({ laptop, onSelect, isCompared, onCompare, is
       <div className="px-5 pb-5">
         <button
           onClick={() => onSelect(laptop)}
-          className="cursor-pointer w-full flex items-center justify-center gap-1.5 text-[#0071e3] hover:text-[#0077ed] text-[13px] font-medium py-2.5 rounded-xl hover:bg-white/[0.04] transition-all"
+          className="active:scale-95 cursor-pointer w-full flex items-center justify-center gap-1.5 text-[#0071e3] hover:text-[#0077ed] text-[13px] font-medium py-2.5 rounded-xl hover:bg-white/[0.04] transition-all"
         >
           <span>Learn more</span>
           <ArrowRight className="w-3.5 h-3.5" />

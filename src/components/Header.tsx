@@ -28,7 +28,7 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
 
           <button
             onClick={onOpenQuiz}
-            className="cursor-pointer inline-flex items-center gap-1.5 bg-[#0071e3] hover:bg-[#0077ed] text-white px-4 py-1.5 rounded-full text-[11px] font-medium tracking-wide transition-all"
+            className="active:scale-95 cursor-pointer inline-flex items-center gap-1.5 bg-[#0071e3] hover:bg-[#0077ed] text-white px-4 py-1.5 rounded-full text-[11px] font-medium tracking-wide transition-all"
             id="btn-quiz-trigger"
           >
             <Sparkles className="w-3 h-3" />

@@ -91,7 +91,7 @@ export default function FilterSidebar({
               <button
                 key={key}
                 onClick={() => setSelectedUseCase(key)}
-                className={`cursor-pointer text-[12px] px-3.5 py-1.5 rounded-full font-medium transition-all ${
+                className={`active:scale-95 cursor-pointer text-[12px] px-3.5 py-1.5 rounded-full font-medium transition-all ${
                   selectedUseCase === key
                     ? 'bg-[#f5f5f7] text-black'
                     : 'bg-white/[0.06] text-[#86868b] hover:text-[#f5f5f7] hover:bg-white/[0.1]'
@@ -135,7 +135,7 @@ export default function FilterSidebar({
             <button
               key={value}
               onClick={() => setMaxPrice(value)}
-              className={`cursor-pointer text-[11px] px-2.5 py-1 rounded-full transition-all ${
+              className={`active:scale-95 cursor-pointer text-[11px] px-2.5 py-1 rounded-full transition-all ${
                 maxPrice === value
                   ? 'bg-[#f5f5f7] text-black font-medium'
                   : 'bg-white/[0.06] text-[#86868b] hover:text-[#f5f5f7] hover:bg-white/[0.1]'

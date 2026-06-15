@@ -128,7 +128,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
                         href={getBuyLinkInfo(laptop).url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="cursor-pointer w-full text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-3 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-2"
+                        className="active:scale-95 cursor-pointer w-full text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-3 rounded-full text-[13px] font-medium transition-all flex items-center justify-center gap-2"
                       >
                         <span>Buy Now</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -141,7 +141,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
                             href={getSearchLinks(laptop).amazon}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="cursor-pointer flex-1 text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-1.5"
+                            className="active:scale-95 cursor-pointer flex-1 text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-[13px] font-medium transition-all flex items-center justify-center gap-1.5"
                           >
                             <Search className="w-3.5 h-3.5" />
                             <span>Amazon</span>
@@ -150,7 +150,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
                             href={getSearchLinks(laptop).flipkart}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="cursor-pointer flex-1 text-center bg-white/[0.08] hover:bg-white/[0.14] text-[#f5f5f7] py-2.5 rounded-full text-[13px] font-medium transition-colors flex items-center justify-center gap-1.5"
+                            className="active:scale-95 cursor-pointer flex-1 text-center bg-white/[0.08] hover:bg-white/[0.14] text-[#f5f5f7] py-2.5 rounded-full text-[13px] font-medium transition-all flex items-center justify-center gap-1.5"
                           >
                             <Search className="w-3.5 h-3.5" />
                             <span>Flipkart</span>
@@ -279,7 +279,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
                           <button
                             key={alt.id}
                             onClick={() => onSelectAlternative?.(alt)}
-                            className="text-left bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] rounded-xl p-3 flex items-center gap-3 transition-colors cursor-pointer"
+                            className="active:scale-[0.98] text-left bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] rounded-xl p-3 flex items-center gap-3 transition-all cursor-pointer"
                           >
                             <div className="w-12 h-12 rounded-lg bg-black shrink-0 overflow-hidden border border-white/[0.04]">
                               <img src={alt.imageUrl} alt={alt.name} className="w-full h-full object-cover opacity-80" />

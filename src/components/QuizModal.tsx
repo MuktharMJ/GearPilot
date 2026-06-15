@@ -132,7 +132,7 @@ export default function QuizModal({ isOpen, onClose, onApply }: QuizModalProps) 
                     <button
                       type="button"
                       onClick={() => setQuizStep(2)}
-                      className="cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white px-5 py-2.5 rounded-full font-medium text-[13px] flex items-center gap-1 transition-colors"
+                      className="active:scale-95 cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white px-5 py-2.5 rounded-full font-medium text-[13px] flex items-center gap-1 transition-all"
                     >
                       Continue <ChevronRight className="w-4 h-4" />
                     </button>
@@ -175,7 +175,7 @@ export default function QuizModal({ isOpen, onClose, onApply }: QuizModalProps) 
                     <button
                       type="button"
                       onClick={() => setQuizStep(3)}
-                      className="cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white px-5 py-2.5 rounded-full font-medium text-[13px] flex items-center gap-1 transition-colors"
+                      className="active:scale-95 cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white px-5 py-2.5 rounded-full font-medium text-[13px] flex items-center gap-1 transition-all"
                     >
                       Continue <ChevronRight className="w-4 h-4" />
                     </button>
@@ -219,7 +219,7 @@ export default function QuizModal({ isOpen, onClose, onApply }: QuizModalProps) 
                     <button
                       type="button"
                       onClick={handleApply}
-                      className="cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white px-6 py-2.5 rounded-full font-semibold text-[13px] transition-colors"
+                      className="active:scale-95 cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white px-6 py-2.5 rounded-full font-semibold text-[13px] transition-all"
                     >
                       Find Best Matches
                     </button>

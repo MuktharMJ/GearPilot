@@ -1,4 +1,5 @@
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { ArrowLeft, Check, X, ShieldAlert } from 'lucide-react';
 import { laptops } from '../data/laptops';
 import Header from '../components/Header';
@@ -12,7 +13,13 @@ export default function Compare() {
   const compareLaptops = ids.map(id => laptops.find(l => l.id === id)).filter(Boolean) as typeof laptops;
 
   return (
-    <div className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between">
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between"
+    >
       <Header onOpenQuiz={() => navigate('/')} />
 
       <main className="max-w-[1200px] w-full mx-auto px-6 py-8 flex-1">
@@ -44,7 +51,7 @@ export default function Compare() {
             </div>
             <button 
               onClick={() => navigate('/')} 
-              className="cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-colors"
+              className="active:scale-95 cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-all"
             >
               Return to Catalog
             </button>
@@ -65,7 +72,7 @@ export default function Compare() {
                             const newIds = ids.filter(id => id !== laptop.id);
                             navigate(`/compare?ids=${newIds.join(',')}`);
                           }}
-                          className="absolute top-4 right-4 bg-white/[0.06] text-[#86868b] p-1.5 rounded-full opacity-0 group-hover:opacity-100 hover:bg-red-500/20 hover:text-red-400 transition-all cursor-pointer"
+                          className="active:scale-95 absolute top-4 right-4 bg-white/[0.06] text-[#86868b] p-1.5 rounded-full opacity-0 group-hover:opacity-100 hover:bg-red-500/20 hover:text-red-400 transition-all cursor-pointer"
                         >
                           <X className="w-3 h-3" />
                         </button>
@@ -166,6 +173,6 @@ export default function Compare() {
       </main>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }

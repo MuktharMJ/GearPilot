@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { laptops } from '../data/laptops';
 import { Laptop } from '../types';
 import { useFilters } from '../hooks/useFilters';
@@ -74,7 +74,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between">
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between"
+    >
       <Header onOpenQuiz={() => setIsQuizOpen(true)} />
 
       <main className="max-w-[1200px] w-full mx-auto px-6 py-8 flex-1">
@@ -117,7 +123,7 @@ export default function Home() {
                 </div>
                 <button
                   onClick={resetFilters}
-                  className="cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-colors"
+                  className="active:scale-95 cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-all"
                 >
                   Reset Filters
                 </button>
@@ -147,7 +153,7 @@ export default function Home() {
                   {visibleCount < filteredLaptops.length && (
                     <button
                       onClick={() => setVisibleCount(v => v + 8)}
-                      className="cursor-pointer text-[#0071e3] hover:text-[#0077ed] text-[13px] font-medium px-6 py-2.5 rounded-full border border-[#0071e3]/30 hover:border-[#0071e3]/60 transition-all"
+                      className="active:scale-95 cursor-pointer text-[#0071e3] hover:text-[#0077ed] text-[13px] font-medium px-6 py-2.5 rounded-full border border-[#0071e3]/30 hover:border-[#0071e3]/60 transition-all"
                     >
                       Show More
                     </button>
@@ -179,6 +185,6 @@ export default function Home() {
       />
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }
