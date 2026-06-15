@@ -2,6 +2,7 @@ import { X, ArrowUpDown } from 'lucide-react';
 import { laptops } from '../data/laptops';
 import { UseCaseType } from '../types';
 import { SortOrder } from '../hooks/useFilters';
+import CustomSelect from './CustomSelect';
 
 interface FilterSidebarProps {
   searchQuery: string;
@@ -41,19 +42,17 @@ export default function FilterSidebar({
       {/* Sort */}
       <div className="space-y-2">
         <label className="text-[11px] font-medium text-[#86868b] block">Sort by</label>
-        <div className="relative">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#6e6e73]">
-            <ArrowUpDown className="w-3.5 h-3.5" />
-          </div>
-          <select
+        <div className="relative z-10">
+          <CustomSelect
             value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value as SortOrder)}
-            className="w-full appearance-none text-[13px] py-2.5 pl-8 pr-4 rounded-lg border border-white/[0.08] bg-white/[0.04] text-[#f5f5f7] focus:outline-none focus:ring-1 focus:ring-[#0071e3]/50 transition-all cursor-pointer"
-          >
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="battery-desc">Battery: Longest First</option>
-          </select>
+            onChange={(val) => setSortOrder(val as SortOrder)}
+            icon={<ArrowUpDown className="w-3.5 h-3.5" />}
+            options={[
+              { value: 'price-asc', label: 'Price: Low to High' },
+              { value: 'price-desc', label: 'Price: High to Low' },
+              { value: 'battery-desc', label: 'Battery: Longest First' }
+            ]}
+          />
         </div>
       </div>
 
