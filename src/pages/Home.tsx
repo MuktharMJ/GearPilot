@@ -86,8 +86,15 @@ export default function Home() {
       <main className="max-w-[1200px] w-full mx-auto px-6 py-8 flex-1">
         <HeroSection />
 
-        {/* Section header */}
-        <div className="mb-10 pt-6 border-t border-white/[0.06]" id="scrolling-target">
+        {/* Section header — scroll-triggered reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10 pt-6 border-t border-white/[0.06]"
+          id="scrolling-target"
+        >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[#f5f5f7]">
@@ -98,7 +105,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <FilterSidebar

@@ -1,6 +1,9 @@
 import { Sparkles, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { useFavorites } from '../hooks/useFavorites';
+
+const ease = [0.25, 0.1, 0.25, 1] as const;
 
 interface HeaderProps {
   onOpenQuiz: () => void;
@@ -26,14 +29,20 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
             )}
           </Link>
 
-          <button
+          <motion.button
             onClick={onOpenQuiz}
-            className="active:scale-95 cursor-pointer inline-flex items-center gap-1.5 bg-[#0071e3] hover:bg-[#0077ed] text-white px-4 py-1.5 rounded-full text-[11px] font-medium tracking-wide transition-all"
+            whileHover={{
+              scale: 1.02,
+              boxShadow: '0 0 16px rgba(0,113,227,0.3)',
+            }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ duration: 0.2, ease }}
+            className="cursor-pointer inline-flex items-center gap-1.5 bg-[#0071e3] hover:bg-[#0077ed] text-white px-4 py-1.5 rounded-full text-[11px] font-medium tracking-wide transition-colors"
             id="btn-quiz-trigger"
           >
             <Sparkles className="w-3 h-3" />
             <span>Find Your Match</span>
-          </button>
+          </motion.button>
         </div>
       </div>
     </header>
