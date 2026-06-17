@@ -33,7 +33,7 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
             onClick={onOpenQuiz}
             whileHover={{
               scale: 1.02,
-              boxShadow: '0 0 16px rgba(0,113,227,0.3)',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
             }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease }}

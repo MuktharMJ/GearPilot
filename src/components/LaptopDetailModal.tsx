@@ -59,7 +59,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
           />
 
           <motion.div
@@ -67,7 +67,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-[#1d1d1f] rounded-3xl w-full max-w-5xl max-h-[95vh] overflow-hidden relative z-10 border border-white/[0.08] flex flex-col"
+            className="bg-[#0a0a0a] rounded-3xl w-full max-w-5xl max-h-[95vh] overflow-hidden relative z-10 border border-white/[0.06] shadow-2xl flex flex-col"
           >
             <button
               onClick={onClose}
@@ -163,7 +163,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
               </div>
 
               {/* Right Column: Buying Guide (Scrollable) */}
-              <div className="w-full lg:w-[60%] p-6 md:p-8 overflow-y-auto bg-[#1d1d1f]">
+              <div className="w-full lg:w-[60%] p-6 md:p-8 overflow-y-auto bg-[#0a0a0a]">
                 <div className="space-y-8">
                   {/* Scores Section */}
                   <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 md:p-6">

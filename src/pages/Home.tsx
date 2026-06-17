@@ -79,7 +79,7 @@ export default function Home() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-      className="min-h-screen bg-black text-[#f5f5f7] font-sans flex flex-col justify-between"
+      className="min-h-screen text-[#f5f5f7] font-sans flex flex-col justify-between"
     >
       <Header onOpenQuiz={() => setIsQuizOpen(true)} />
 
@@ -121,16 +121,16 @@ export default function Home() {
 
           <div className="lg:col-span-3">
             {filteredLaptops.length === 0 ? (
-              <div className="bg-white/[0.03] rounded-3xl border border-white/[0.06] p-16 text-center space-y-5">
+              <div className="glass-panel rounded-3xl p-16 text-center space-y-5">
                 <div>
-                  <h3 className="font-semibold text-lg text-[#f5f5f7]">No laptops found.</h3>
-                  <p className="text-[14px] text-[#86868b] mt-2 max-w-md mx-auto">
+                  <h3 className="font-semibold text-lg text-[#f5f5f7] tracking-tight">No laptops found.</h3>
+                  <p className="text-[14px] text-[#86868b] mt-2 max-w-md mx-auto leading-relaxed">
                     Try adjusting your budget, choosing a different category, or simplifying your search.
                   </p>
                 </div>
                 <button
                   onClick={resetFilters}
-                  className="active:scale-95 cursor-pointer bg-[#0071e3] hover:bg-[#0077ed] text-white text-[13px] font-medium px-6 py-2.5 rounded-full transition-all"
+                  className="active:scale-95 cursor-pointer bg-white text-black hover:bg-[#f5f5f7] text-[13px] font-medium px-6 py-2.5 rounded-full transition-all shadow-[0_2px_10px_rgba(255,255,255,0.1)]"
                 >
                   Reset Filters
                 </button>

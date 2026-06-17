@@ -1,6 +1,0 @@
-{
-  "name": "GearPilot",
-  "description": "An intuitive web-based laptop advisor helping users find the best setup based on budget, use case, battery life, and portability preferences.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
