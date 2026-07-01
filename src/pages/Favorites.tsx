@@ -81,7 +81,7 @@ export default function Favorites() {
         </div>
 
         {favoriteLaptops.length === 0 ? (
-          <div className="bg-white/[0.03] rounded-3xl border border-white/[0.06] p-16 text-center space-y-5">
+          <div className="glass-panel rounded-3xl p-16 text-center space-y-5">
             <Heart className="w-12 h-12 text-[#86868b] mx-auto opacity-50" />
             <div>
               <h3 className="font-semibold text-lg text-[#f5f5f7]">No favorites yet.</h3>

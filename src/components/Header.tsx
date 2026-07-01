@@ -13,7 +13,7 @@ export default function Header({ onOpenQuiz }: HeaderProps) {
   const { favoriteCount } = useFavorites();
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-nav border-b border-white/[0.08] transition-all">
+    <header className="sticky top-0 z-40 w-full glass-nav border-b border-white/[0.06] shadow-[0_2px_20px_rgba(0,0,0,0.3),inset_0_-1px_0_rgba(255,255,255,0.04)] transition-all">
       <div className="max-w-[980px] mx-auto px-6 h-11 flex items-center justify-between">
         <a href="/" className="text-[14px] font-semibold text-[#f5f5f7] tracking-tight hover:text-white/80 transition-colors">
           GearPilot

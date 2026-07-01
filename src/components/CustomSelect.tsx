@@ -78,7 +78,7 @@ export default function CustomSelect({ value, onChange, options, icon }: CustomS
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="w-full flex items-center justify-between py-2.5 pl-3 pr-4 rounded-lg border border-white/[0.08] bg-white/[0.04] text-[#f5f5f7] hover:bg-white/[0.06] hover:border-white/[0.12] transition-all focus:outline-none focus:ring-1 focus:ring-[#0071e3]/50 cursor-pointer"
+        className="w-full flex items-center justify-between py-2.5 pl-3 pr-4 rounded-lg glass-input text-[#f5f5f7] hover:bg-white/[0.06] hover:border-white/[0.12] transition-all focus:outline-none focus:ring-1 focus:ring-[#0071e3]/50 cursor-pointer"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
@@ -96,8 +96,7 @@ export default function CustomSelect({ value, onChange, options, icon }: CustomS
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute z-50 w-full mt-1.5 p-1.5 rounded-xl border border-white/[0.08] shadow-2xl overflow-hidden"
-            style={{ backgroundColor: '#1c1c1e' }}
+            className="absolute z-50 w-full mt-1.5 p-1.5 rounded-xl glass-modal shadow-2xl overflow-hidden"
             role="listbox"
           >
             {options.map((option, index) => {

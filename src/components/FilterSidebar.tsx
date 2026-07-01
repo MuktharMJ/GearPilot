@@ -34,7 +34,7 @@ export default function FilterSidebar({
   setSortOrder,
 }: FilterSidebarProps) {
   return (
-    <div className="lg:col-span-1 bg-white/[0.03] p-6 rounded-2xl border border-white/[0.06] space-y-6 h-fit">
+    <div className="lg:col-span-1 glass-panel p-6 rounded-2xl space-y-6 h-fit">
       <h3 className="font-semibold text-sm text-[#f5f5f7] pb-4 border-b border-white/[0.06]">
         Filters
       </h3>
@@ -65,7 +65,7 @@ export default function FilterSidebar({
             placeholder="Model, processor, brand..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full text-[13px] py-2.5 px-3 rounded-lg border border-white/[0.08] bg-white/[0.04] text-[#f5f5f7] focus:outline-none focus:ring-1 focus:ring-[#0071e3]/50 placeholder-[#6e6e73] transition-all"
+            className="w-full text-[13px] py-2.5 px-3 rounded-lg glass-input text-[#f5f5f7] focus:outline-none focus:ring-1 focus:ring-[#0071e3]/50 placeholder-[#6e6e73] transition-all"
             id="inp-search"
           />
           {searchQuery && (

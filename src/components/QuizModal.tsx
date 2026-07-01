@@ -37,8 +37,8 @@ export default function QuizModal({ isOpen, onClose, onApply }: QuizModalProps) 
   const optionClass = (active: boolean) =>
     `cursor-pointer text-left p-4 rounded-2xl border text-[13px] font-medium flex items-center gap-3 transition-all ${
       active
-        ? 'bg-white/[0.08] border-white/[0.2] text-[#f5f5f7]'
-        : 'bg-white/[0.02] border-white/[0.06] text-[#86868b] hover:border-white/[0.12] hover:text-[#f5f5f7]'
+        ? 'glass-tag border-white/[0.2] text-[#f5f5f7] shadow-[0_0_20px_rgba(0,113,227,0.1)]'
+        : 'bg-white/[0.02] border-white/[0.06] text-[#86868b] hover:glass-tag hover:border-white/[0.12] hover:text-[#f5f5f7]'
     }`;
 
   return (
@@ -58,7 +58,7 @@ export default function QuizModal({ isOpen, onClose, onApply }: QuizModalProps) 
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-[#1d1d1f] border border-white/[0.08] rounded-3xl w-full max-w-lg p-6 sm:p-8 relative z-10 text-[#f5f5f7]"
+            className="glass-modal rounded-3xl w-full max-w-lg p-6 sm:p-8 relative z-10 text-[#f5f5f7]"
           >
             <button
               onClick={handleClose}

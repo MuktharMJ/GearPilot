@@ -39,7 +39,7 @@ export default function Compare() {
         </div>
 
         {compareLaptops.length === 0 ? (
-          <div className="bg-white/[0.03] rounded-3xl border border-white/[0.06] p-16 text-center space-y-5 max-w-2xl mx-auto">
+          <div className="glass-panel rounded-3xl p-16 text-center space-y-5 max-w-2xl mx-auto">
             <div className="inline-flex p-4 bg-white/[0.06] text-[#6e6e73] rounded-full">
               <ShieldAlert className="w-8 h-8" />
             </div>
@@ -57,7 +57,7 @@ export default function Compare() {
             </button>
           </div>
         ) : (
-          <div className="bg-white/[0.03] rounded-3xl border border-white/[0.06] overflow-hidden">
+          <div className="glass-panel rounded-3xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>

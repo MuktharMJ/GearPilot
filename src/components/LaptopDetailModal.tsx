@@ -67,7 +67,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-[#0a0a0a] rounded-3xl w-full max-w-5xl max-h-[95vh] overflow-hidden relative z-10 border border-white/[0.06] shadow-2xl flex flex-col"
+            className="glass-modal rounded-3xl w-full max-w-5xl max-h-[95vh] overflow-hidden relative z-10 shadow-2xl flex flex-col"
           >
             <button
               onClick={onClose}
@@ -110,12 +110,12 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
                         { label: 'Memory', value: laptop.specs.ram },
                         { label: 'Storage', value: laptop.specs.storage },
                       ].map(({ label, value }) => (
-                        <div key={label} className="bg-white/[0.04] p-3 rounded-xl">
+                        <div key={label} className="glass-spec p-3 rounded-xl">
                           <span className="text-[10px] text-[#6e6e73] block mb-0.5">{label}</span>
                           <p className="font-medium text-[#f5f5f7] truncate">{value}</p>
                         </div>
                       ))}
-                      <div className="bg-white/[0.04] p-3 rounded-xl col-span-2">
+                      <div className="glass-spec p-3 rounded-xl col-span-2">
                         <span className="text-[10px] text-[#6e6e73] block mb-0.5">Display</span>
                         <p className="font-medium text-[#f5f5f7] truncate">{laptop.specs.display}</p>
                       </div>
@@ -166,7 +166,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
               <div className="w-full lg:w-[60%] p-6 md:p-8 overflow-y-auto bg-[#0a0a0a]">
                 <div className="space-y-8">
                   {/* Scores Section */}
-                  <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 md:p-6">
+                  <div className="glass-panel rounded-2xl p-5 md:p-6">
                     <h4 className="text-[14px] font-semibold text-[#f5f5f7] mb-6">Recommendation Scores</h4>
                     
                     <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start">
@@ -201,7 +201,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
 
                   {/* Who Should Buy / Avoid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5">
+                    <div className="glass-panel rounded-2xl p-5">
                       <div className="flex items-center gap-2 mb-4">
                         <div className="w-6 h-6 rounded-full bg-[#30d158]/20 flex items-center justify-center">
                           <ThumbsUp className="w-3.5 h-3.5 text-[#30d158]" />
@@ -218,7 +218,7 @@ export default function LaptopDetailModal({ laptop, onClose, onSelectAlternative
                       </ul>
                     </div>
                     
-                    <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5">
+                    <div className="glass-panel rounded-2xl p-5">
                       <div className="flex items-center gap-2 mb-4">
                         <div className="w-6 h-6 rounded-full bg-[#ff453a]/20 flex items-center justify-center">
                           <ThumbsDown className="w-3.5 h-3.5 text-[#ff453a]" />

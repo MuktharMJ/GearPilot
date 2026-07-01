@@ -2,7 +2,7 @@ import { Github, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] py-12 text-center">
+    <footer className="glass-footer py-12 text-center">
       <div className="max-w-[980px] mx-auto px-6 flex flex-col items-center">
         <p className="text-[12px] text-[#86868b] leading-relaxed max-w-lg mb-8">
           GearPilot helps Indian college students, developers, and first-time buyers find the right laptop with curated recommendations and honest specs.

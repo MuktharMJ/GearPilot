@@ -19,7 +19,7 @@ export default function CompareTray({ compareList, onRemove, onClear, onCompare 
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-xl bg-[#1d1d1f]/95 border border-white/[0.1] rounded-2xl shadow-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-2xl backdrop-saturate-150"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-xl glass-tray rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4"
       >
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-white/[0.06] flex items-center justify-center">
