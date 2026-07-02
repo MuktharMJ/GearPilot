@@ -30,6 +30,7 @@ The platform combines curated recommendations, advanced filtering, side-by-side 
 - Vite
 - React Router
 - Framer Motion
+- Open router API
 
 ### Deployment
 - Vercel
