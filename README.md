@@ -38,6 +38,7 @@ A modern laptop recommendation platform built for **Indian students, developers,
 
 ## 🛠 Tech Stack
 
+<<<<<<< HEAD
 | Layer | Technologies |
 | :--- | :--- |
 | **Framework** | React 19 · TypeScript 5.8 |
@@ -47,6 +48,24 @@ A modern laptop recommendation platform built for **Indian students, developers,
 | **Animations** | Motion (Framer Motion) |
 | **Icons** | Lucide React |
 | **Deployment** | Vercel |
+=======
+### Frontend
+- React
+- TypeScript
+- Vite
+- React Router
+- Framer Motion
+- Open router API
+
+### Deployment
+- Vercel
+
+### Planned Backend (v2)
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+>>>>>>> bc4ca9370533fc8af5f21483134807f9a8d99399
 
 ---
 
