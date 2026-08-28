@@ -64,7 +64,7 @@ A modern laptop recommendation platform built for **Indian students, developers,
 - Node.js
 - Express.js
 - MongoDB
-- JWT Authentication
+- Firebase
 >>>>>>> bc4ca9370533fc8af5f21483134807f9a8d99399
 
 ---
